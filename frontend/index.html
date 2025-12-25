@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PG Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="login-wrapper">
+        <div class="login-card">
+            <h2>Welcome Back</h2>
+            <p style="color:#666; margin-bottom: 20px;">PG Management System</p>
+            
+            <input type="text" id="username" placeholder="Username">
+            <input type="password" id="password" placeholder="Password">
+            
+            <button class="login-btn" onclick="handleLogin()">Sign In</button>
+            
+            <p id="error-msg" style="color: red; margin-top: 15px; font-size: 14px;"></p>
+            
+            <div style="margin-top: 20px; font-size: 12px; color: #888; text-align: left;">
+                <p><b>Demo Credentials:</b></p>
+                <p>Admin: admin / 123</p>
+                <p>Tenant: john / 123</p>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

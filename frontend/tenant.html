@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My PG Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onload="checkAuth('tenant'); loadTenantData();">
+
+    <nav class="navbar">
+        <div id="welcome-msg" style="font-weight: bold;">Welcome</div>
+        <button class="logout-btn" onclick="logout()">Logout</button>
+    </nav>
+
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <small>Rent Status</small>
+                <span class="stat-number" id="my-rent">...</span>
+            </div>
+            <div class="stat-card">
+                <small>Food Plan</small>
+                <div style="margin-top: 5px;">
+                    <select id="my-food" onchange="updateFood()">
+                        <option value="None">None</option>
+                        <option value="Veg">Veg</option>
+                        <option value="Non-Veg">Non-Veg</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="action-bar">
+            <button class="action-btn" onclick="toggleForm('complaint-form')" style="background:#e67e22;">
+                ! Raise Complaint
+            </button>
+        </div>
+
+        <div id="complaint-form" class="form-panel">
+            <h3>Report Issue</h3>
+            <select id="c-type" style="width:100%; padding:10px; margin-bottom:10px;">
+                <option>Electrical</option>
+                <option>Plumbing</option>
+                <option>Furniture</option>
+                <option>Wi-Fi</option>
+                <option>Other</option>
+            </select>
+            <input type="text" id="c-desc" placeholder="Describe the issue...">
+            <button class="submit-btn" onclick="raiseComplaint()">Submit Ticket</button>
+        </div>
+
+        <h3>My Tickets</h3>
+        <div id="my-tickets" class="list-container"></div>
+        <br>
+
+        <h3>Rooms</h3>
+        <div id="room-list" class="list-container"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onload="checkAuth('admin'); loadAdminData();">
+
+    <nav class="navbar">
+        <div style="font-size: 1.2em; font-weight: bold;">PG Admin</div>
+        <button class="logout-btn" onclick="logout()">Logout</button>
+    </nav>
+
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <small>Occupied Rooms</small>
+                <span class="stat-number" id="adm-occ">0</span>
+            </div>
+            <div class="stat-card alert">
+                <small>Rent Due</small>
+                <span class="stat-number" id="adm-due">0</span>
+            </div>
+            <div class="stat-card" style="border-bottom: 4px solid orange;">
+                <small>Open Issues</small>
+                <span class="stat-number" id="adm-issues">0</span>
+            </div>
+        </div>
+
+        <div class="action-bar">
+            <button class="action-btn" onclick="toggleForm('tenant-form')">+ New Tenant</button>
+            <button class="action-btn" onclick="toggleForm('room-form')">+ New Room</button>
+        </div>
+
+        <div id="tenant-form" class="form-panel">
+            <h3>Register Tenant</h3>
+            <div class="form-group">
+                <input type="text" id="t-name" placeholder="Full Name">
+                <input type="text" id="t-user" placeholder="Username">
+                <input type="text" id="t-pass" placeholder="Password">
+                
+                <input type="number" id="t-age" placeholder="Age">
+                <input type="text" id="t-addr" placeholder="Original Address">
+                
+                <button class="submit-btn" onclick="registerTenant()">Create Account</button>
+            </div>
+        </div>
+
+        <div id="room-form" class="form-panel">
+            <h3>Add Room</h3>
+            <div class="form-group">
+                <input type="number" id="r-id" placeholder="Room #">
+                <select id="r-type"><option>Single</option><option>Double</option></select>
+                <input type="number" id="r-price" placeholder="Rent">
+                <button class="submit-btn" onclick="addRoom()">Add</button>
+            </div>
+        </div>
+
+        <h3 class="section-title">Maintenance Tickets</h3>
+        <div id="complaint-list" class="list-container"></div>
+        <br>
+
+        <h3 class="section-title">Rooms & Vacancy</h3>
+        <div id="admin-list" class="list-container"></div>
+        <br>
+
+        <h3 class="section-title">Registered Tenant Details</h3>
+        <div id="tenant-directory" class="list-container"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
